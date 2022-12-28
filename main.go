@@ -19,6 +19,9 @@ func main() {
 	}
 
 	port := os.Getenv("PORT")
+	if port == "" {
+		log.Fatal("Error loading PORT env var")
+	}
 
 	r := gin.Default()
 	r.GET("/ping", func(c *gin.Context) {
